@@ -1,0 +1,76 @@
+<!--
+Author: Hans Jaeger
+Date: 2/21/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forms</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index HTML</title>
+    <link rel = "stylesheet" href="/index.css">
+</head>
+<body>
+   <h1>Working with Forms</h1>
+   <!--First Form Regarding Personal Data-->
+   <fieldset>
+    <legend>Peronsal Data</legend>
+    <form name ="FormOne" id = "form1" method = "post" action="">
+        <label for ="fname">First name: <input required name = 'fname'  type = "text" placeholder="First Name" id="fname"></label>
+        <label for ="mname">Intials <input type="text"  name ='Intial'id="init" pattern="[A-Za-z]"></label>
+        <label for ="lname">Last Name <input type="text"name = 'lname'  id="lname"></label>
+        <label for ="email">Email <input type="text" id="email"></label>
+        <br>
+        <br>
+        <label for ="dob">Date of Birth<input type ="date" id ="bdate" placeholder="mm/dd/yy"></label>
+        <br>
+        <br>
+        <label for ="house">Howm many people are in your household?<input type ="number" id ="famSize" min="1" max = "10" ></label>
+        <br>
+        <br>
+        Select Your Gender
+        <br>
+        <br>
+        <input type="radio" name = 'genderGroup' value="Female">
+        <label for="genderFemale">Female</label>
+    
+       <br>
+       <input type="radio" name = "genderGroup" value="Male">
+       <label for="genderMale"> Male</label>
+        <br>
+   
+</fieldset>
+<!--Second Form Regarding Hobbies -->
+    <fieldset>
+        <legend>Hobbies</legend>
+       
+           <label for="sport">Sports</label><input type="checkbox" name="sport" id="sport" value="Sports">
+            <label for="SamplingFood">Sampling Food</label><input type="checkbox" name="SamplingFood" id="SamplingFood" value="Sampling Food" checked>
+            <label for="Travel">Travel</label><input type="checkbox" name="Travel" id="Travel" value="Travel">
+           <label for="Reading">Reading</label><input type="checkbox" name="Reading" id="Reading" value="Reading">
+            
+       
+    </fieldset>
+
+    <fieldset>
+        <legend>Foods</legend>
+    
+        Use CTRL to select multiple values
+        <br>
+        <select name="foods" id="foods" multiple size="3">
+            <option value="1">Sushi</option> <option value="2">Rice Cakes</option><option value="3">Ceviche</option><option value="4">Fuji Rice</option><option value="5">Ceaser Salad</option>
+        </select>
+      
+    </fieldset>
+What else would you like to share?
+<br>
+<textarea name="share" id="share" placeholder="No more than 200 words" rows="4" cols="30" maxlength="200"></textarea>
+<br>
+<br>
+<input type="reset" value="Reset">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
