@@ -45,7 +45,7 @@ label {
   font-weight: bold;
 }
 
-input, select {
+input, select, button {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -74,7 +74,7 @@ a{
     overflow: auto;
   }
 #CalorieSection{
-    background-image: url(./Media/UserBackground.jpg);
+    background-image: url(./Media/CalorieManagement.jpg);
     background-size: 1942 2000px;
     background-position: 30px -10px;
     overflow: auto;

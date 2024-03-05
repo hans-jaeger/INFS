@@ -11,7 +11,7 @@ File: fitness.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="fitness.css">
   <title>Friendly Wellness Assistant</title>
-  <script src="fitness,js"></script>
+  <script src="fitness.js"></script>
 </head>
 <body>
   <header>
@@ -47,24 +47,25 @@ File: fitness.html
     <p id ='informCals'>Note: Press CTRL or CMD to select multiple options</p>
     <form id="calorieForm">
       <label for="foodCategories">Food Categories:</label>
-      <select id="foodCategories" multiple>
+      <select id="foodCategories" >
         <!--Values assigned for calorie loss after an hour -->
         <option value="500">Meat</option>
         <option value="400">Fish</option>
         <option value="200">Pasta</option>
-        <option value="100">Rice</option>
+        <option value="100" ">Rice</option>
         <option value="400">Ramen</option>
       </select>
       
       <label for="activityList">Activities:</label>
-      <select id="activityList">
-        <option value="100">Running</option>
-        <option value="150">Weights</option>
-        <option value="100">Housework</option>
-        <option value="300">Biking</option>
-        <option value="200">Climbing</option>
-        <option value="200">Sedentary</option>
+      <select id="activityList" onchange="showMessage()" multiple>
+        <option value="Running">Running</option>
+        <option value="Active" onmouseover="alert('Has a daily exercise routine, such as working out at a gym, going for a walk or jog, or doing some regular weightlifting')">Active</option>
+        <option value="Housework">Housework</option>
+        <option value="Biking">Biking</option>
+        <option value="200" onmouseover="alert('Engages in vigorous sporting activities or training 3 – 4 hours a day 6 days a week.')">Athlete</option>
+        <option value="Sedentary" onmouseover="alert('Little physical activity. Spends most of the day sitting, reading, socializing, watching television, playing video games, and using the computer.')">Sedentary</option>
       </select>
+      <button onclick="bmiCalc()">Your BMI</button>
     </form>
   </section>
   <!--Results Section-->
