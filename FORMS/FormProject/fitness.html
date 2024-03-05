@@ -18,7 +18,8 @@ File: fitness.html
     <h1>Friendly Wellness Assistant</h1>
   </header>
   <!--User Information Section-->
-  <section>
+
+  <section id = "UserSection">
     <h2>User Information</h2>
     <form id="userForm">
       <label for="userName">User Name:</label>
@@ -41,7 +42,7 @@ File: fitness.html
     </form>
   </section>
   <!--Calorie Management Section -->
-  <section>
+  <section id ="CalorieSection">
     <h2>Calorie Management</h2>
     <p id ='informCals'>Note: Press CTRL or CMD to select multiple options</p>
     <form id="calorieForm">
@@ -56,12 +57,13 @@ File: fitness.html
       </select>
       
       <label for="activityList">Activities:</label>
-      <select id="activityList" multiple>
+      <select id="activityList">
         <option value="100">Running</option>
         <option value="150">Weights</option>
         <option value="100">Housework</option>
         <option value="300">Biking</option>
         <option value="200">Climbing</option>
+        <option value="200">Sedentary</option>
       </select>
     </form>
   </section>
@@ -71,6 +73,7 @@ File: fitness.html
     <textarea rows="6" cols="50" placeholder="Can hold a paragraph of text"></textarea>
 
   </section>
+
   <!--Links Section with the added new tab-->
   <section>
     <h2>Links</h2>

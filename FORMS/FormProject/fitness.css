@@ -7,6 +7,8 @@ File: fitness.css
 body {
   font-family: Arial,sans-serif;
   padding: 20px;
+
+    
 }
 
 header {
@@ -23,8 +25,8 @@ section {
   align-items: center;
   justify-content: center;
   height: 50vh; 
+  
 }
-
 
 
 h2 {
@@ -56,14 +58,27 @@ a{
   text-decoration: none;
 }
   
-  /*
+/*
   ID section
-  */
- #informCals{
+*/
+
+#informCals{
     color: gray;
     font-size: smaller;
   }
   
+#UserSection{
+    background-image: url(./Media/UserBackground.jpg);
+    background-size: 1942 2000px;
+    background-position: 30px -10px;
+    overflow: auto;
+  }
+#CalorieSection{
+    background-image: url(./Media/UserBackground.jpg);
+    background-size: 1942 2000px;
+    background-position: 30px -10px;
+    overflow: auto;
+  }
 #userForm {
   width: 100%;
   max-width: 500px; 
