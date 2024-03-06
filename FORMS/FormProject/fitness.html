@@ -27,15 +27,15 @@ File: fitness.html
       <input type="text" id="userName" pattern="[A-Za-z][A-Za-z\s'-]+" required>
       <!--Restrictions added-->
 
-      <label for="userHeight">Height (cm):</label>
+      <label for="userHeight">Height (Inches):</label>
       <input type="number" id="userHeight" min="100" max="250" required>
       
-      <label for="userWeight">Weight (kg):</label>
+      <label for="userWeight">Weight (lbs):</label>
       
       <input type="number" id="userWeight" min="30" max="200" required>
       
       <label for="userBirthDate">Birth Date:</label>
-      <!--Restriction to not be able to select more than the current day-->
+      <!--Restriction to not be able to select more thans the current day-->
       <input type="date" id="userBirthDate" min="1924-02-26" max="2024-02-26"required>
       
      
@@ -60,7 +60,7 @@ File: fitness.html
       </select>
       
       <label for="activityList">Activities:</label>
-      <select id="activityList" onchange="showMessage()" multiple>
+      <select id="activityList" multiple>
         <option value="200">Running</option>
         <option value="Active" onmouseover="alert('Has a daily exercise routine, such as working out at a gym, going for a walk or jog, or doing some regular weightlifting')">Active</option>
         <option value="200">Housework</option>
@@ -70,8 +70,8 @@ File: fitness.html
         <option value="600">Swimmming</option>
         <option value="550">Hiking</option>
       </select>
-      <button onclick="bmiCalc()">Your BMI</button>
-      <button onclick="baseCalories()">Your Base Calories</button>
+      <button type = "button" onclick="bmiCalc()">Your BMI</button>
+      <button type = "button" onclick="baseCalories()">Your Base Calories</button>
     </form>
   </section>
   <!--Results Section-->

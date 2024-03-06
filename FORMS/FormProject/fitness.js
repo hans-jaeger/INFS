@@ -22,42 +22,57 @@ if (selectedOption == "Active"){
 
   */
  
-  function baseCalories(){
+  function baseCalories() {
     // Get the birth date from the input
     const birthDateInput = document.getElementById('userBirthDate');
-        const birthDate = new Date(birthDateInput.value);
-
+    const birthDate = new Date(birthDateInput.value);
+  
     // Get the current date
     const currentDate = new Date();
-
+  
     // Calculate the age
     const age = currentDate.getFullYear() - birthDate.getFullYear();
+  
     // Get the height and weight input elements
     var height = document.getElementById("userHeight").value;
     var weight = document.getElementById("userWeight").value;
-    // Store the values 
+  
+    // Store the values
     var heightValue = parseInt(height);
     var weightValue = parseInt(weight);
+  
+    var selectedOptions = document.getElementById("activityList").selectedOptions;
+  
+    // Store the final value
+    var valueCalories = 0;
 
-    var selectedOption = document.getElementById("activityList").value;
+    // Requires to store it into an array as we are accessing the multiple attribute tag
 
-    //Store the final value
-    var valueCalories;
-//Checking inputs values from the activityList    
-if(selectedOption == "Sedentary"){
-        valueCalories = 1.2 *  ( 655 + (4.35 * weightValue ) + (4.7 * heightValue ) - (4.7 * age ));
-        alert(valueCalories)
+    //We then iterate through the options by using .forEach(function(option))
+    // Then we create a function 
+    Array.from(selectedOptions).forEach(function(option) {
+    
+        //Store the array values into selectedOption
+      var selectedOption = option.value;
+  
+      if (selectedOption == "Sedentary") {
+        valueCalories += 1.2 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      } else if (selectedOption == "Active") {
+        valueCalories += 1.55 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      } else if (selectedOption == "Athlete") {
+        valueCalories += 1.9 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      }
+    });
+    if (valueCalories){
+
+    
+    alert("Your Base Calories: " + valueCalories);
+    }
+    else{
+        alert("Please Input Values")
+    }
   }
-  if(selectedOption == "Active"){
-    valueCalories = 1.55 *  ( 655 + (4.35 * weightValue ) + (4.7 * heightValue ) - (4.7 * age ));
-    alert(valueCalories)
-}
-if(selectedOption == "Athlete"){
-    valueCalories = 1.9 *  ( 655 + (4.35 * weightValue ) + (4.7 * heightValue ) - (4.7 * age ));
-    alert("Your BMI is: ",valueCalories
-    )
-}
-}
+  
 
 function bmiCalc(){
     //Declaring variables and storing them into variables
@@ -67,6 +82,13 @@ function bmiCalc(){
     var heightValue = parseInt(height);
     var weightValue = parseInt(weight);
 
-    var bmiFinal = ((weight) / (height * height)) * 703
-    alert("Your BMI is: ", bmiFinal)
+    var bmiFinal = ((weightValue) / (heightValue * heightValue)) * 703;
+    if(bmiFinal){
+        alert("Your BMI is: "+bmiFinal)
+    }
+    else{
+        alert("Please Input Values")
+    }
+    
+    console.log(bmiFinal)
  }
