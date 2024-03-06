@@ -3,12 +3,20 @@ Author: Hans Jaeger
 Date: March 5, 2024c
 */
 
+//Global Variable Used for calcUsage() function and baseCalories()
 
-
+var valueCalories =0 ;
+var height;
+var weight;
+var heightValue;
+var weightValue ;
+var bmiFinal;
+var balance;
+var message;
 //Function Message
 
 
-function showMessage() {
+function showMessage( ) {
    var selectedOption = document.getElementById("activityList").value;
    if (selectedOption == "Sedentary"){
     alert(  "Little physical activity. Spends most of the day sitting, reading, socializing, watching television, playing video games, and using the computer.")
@@ -37,38 +45,15 @@ if(selectedOption == "Athlete"){
     const age = currentDate.getFullYear() - birthDate.getFullYear();
   
     // Get the height and weight input elements
-    var height = document.getElementById("userHeight").value;
-    var weight = document.getElementById("userWeight").value;
+     height = document.getElementById("userHeight").value;
+     weight = document.getElementById("userWeight").value;
   
     // Store the values
-    var heightValue = parseInt(height);
-    var weightValue = parseInt(weight);
+   heightValue = parseInt(height);
+   weightValue = parseInt(weight);
   
     var selectedOption = document.getElementById("activityList").value;
-  
-    // Store the final value
-    var valueCalories = 0;
 
-    /* FOR MULTIPLE TAG SELECT
-
-    // Requires to store it into an array as we are accessing the multiple attribute tag
-
-    //We then iterate through the options by using .forEach(function(option))
-    // Then we create a function 
-    Array.from(selectedOptions).forEach(function(option) {
-    
-        //Store the array values into selectedOption
-      var selectedOption = option.value;
-  
-      if (selectedOption == "Sedentary") {
-        valueCalories += 1.2 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
-      } else if (selectedOption == "Active") {
-        valueCalories += 1.55 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
-      } else if (selectedOption == "Athlete") {
-        valueCalories += 1.9 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
-      }
-    });
-    */
     if (selectedOption == "Sedentary") {
         valueCalories += 1.2 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
       } else if (selectedOption == "Active") {
@@ -76,7 +61,7 @@ if(selectedOption == "Athlete"){
       } else if (selectedOption == "Athlete") {
         valueCalories += 1.9 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
       }
-    if (valueCalories){
+    if (valueCalories > 0){
 
     
     alert("Your Base Calories: " + valueCalories);
@@ -89,13 +74,13 @@ if(selectedOption == "Athlete"){
 
 function bmiCalc(){
     //Declaring variables and storing them into variables
-    var height = document.getElementById("userHeight").value;
-    var weight = document.getElementById("userWeight").value;
+    height = document.getElementById("userHeight").value;
+    weight = document.getElementById("userWeight").value;
     // Store the values 
-    var heightValue = parseInt(height);
-    var weightValue = parseInt(weight);
+    heightValue = parseInt(height);
+    weightValue = parseInt(weight);
 
-    var bmiFinal = ((weightValue) / (heightValue * heightValue)) * 703;
+    bmiFinal = ((weightValue) / (heightValue * heightValue)) * 703;
     if(bmiFinal){
         alert("Your BMI is: "+bmiFinal)
     }
@@ -105,3 +90,39 @@ function bmiCalc(){
     
     console.log(bmiFinal)
  }
+ function calcUsage() {
+    // Declare Variables:
+    var activities = 0;
+    var consumed = 0;
+  
+    // Iterate through the values of the food categories
+    var selectedOptions = document.querySelectorAll('#foodCategories option:checked');
+    selectedOptions.forEach(function(option) {
+      var selectedOption = parseInt(option.value);
+      consumed += selectedOption;
+    });
+  
+    // Iterate through the values of the activity categories
+    selectedOptions = document.querySelectorAll('#activityCategories option:checked');
+    selectedOptions.forEach(function(option) {
+      var selectedOption = parseInt(option.value);
+      activities += selectedOption;
+    });
+  
+    // Calculation
+    var baseCalories = 0; // Assuming baseCalories is defined elsewhere
+    var balance = consumed - baseCalories - activities;
+    var message;
+  
+    if (balance > 0) {
+      message = "You have consumed more calories! ";
+    } else if (balance < 0) {
+      message = "You have burned more calories! ";
+    } else {
+      message = "ERROR";
+    }
+  
+    document.getElementById("Results").value = message;
+    
+  }
+  

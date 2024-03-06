@@ -33,6 +33,8 @@ h2 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   margin-bottom: 10px;
+  color: white;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 form {
@@ -68,17 +70,24 @@ a{
   }
   
 #UserSection{
-    background-image: url(./Media/UserBackground.jpg);
+    background-image: url(./Media/YellowTopleft.jpg);
     background-size: 1942 2000px;
-    background-position: 30px -10px;
-    overflow: auto;
+    background-position:-130px -10px;
+  
   }
 #CalorieSection{
-    background-image: url(./Media/CalorieManagement.jpg);
+    background-image: url(./Media/YellowCircle.jpg);
     background-size: 1942 2000px;
-    background-position: 30px -10px;
-    overflow: auto;
+    background-position: 60px -500px;
+    
+    
   }
+#ResultSection{
+  background-image: url(./Media/yellowFlow.jpg);
+  background-size: 1942 2000px;
+  background-position: -600px 1000px;
+
+}
 #userForm {
   width: 100%;
   max-width: 500px; 

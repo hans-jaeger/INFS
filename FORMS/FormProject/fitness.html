@@ -37,8 +37,14 @@ File: fitness.html
       <label for="userBirthDate">Birth Date:</label>
       <!--Restriction to not be able to select more thans the current day-->
       <input type="date" id="userBirthDate" min="1924-02-26" max="2024-02-26"required>
-      
-     
+      <label for="activityList">    Lifestyle:</label>
+      <select id="activityList" onchange="showMessage()">
+        <option value="Active" >Active</option>
+        <option value="Athlete" >Athlete</option>
+        <option value="Sedentary">Sedentary</option>
+      </select>
+      <button type = "button" onclick="bmiCalc()">Your BMI</button>
+      <button type = "button" onclick="baseCalories()">Your Base Calories</button>
     </form>
   </section>
   <!--Calorie Management Section -->
@@ -58,21 +64,25 @@ File: fitness.html
         <option value="400" ">Burrito</option>
         <option value="900">Burgers</option>
       </select>
-      
-      <label for="activityList">Activities:</label>
-      <select id="activityList" onchange="showMessage()">
-        <option value="Active" >Active</option>
-        <option value="Athlete" >Athlete</option>
-        <option value="Sedentary">Sedentary</option>
+      <label for="activityCategories">Activies:</label>
+      <select id="activityCategories" multiple>
+        <!--Values assigned for calorie loss after an hour -->
+        <option value="500">Running</option>
+        <option value="600">Hiking</option>
+        <option value="400">Jogging</option>
+        <option value="500" ">Weights</option>
+        <option value="400">Swimming</option>
+        <option value="300">Housework</option>
+        <option value="100" ">Yoga</option>
+        <option value="600">Tennis</option>
       </select>
-      <button type = "button" onclick="bmiCalc()">Your BMI</button>
-      <button type = "button" onclick="baseCalories()">Your Base Calories</button>
+      <button type ="button" onclick = "calcUsage()">Calculate</button>
     </form>
   </section>
   <!--Results Section-->
-  <section>
+  <section id = "ResultSection">
     <h2>Results</h2>
-    <textarea rows="6" cols="50" placeholder="Can hold a paragraph of text"></textarea>
+    <textarea id="Results" rows="6" cols="50" placeholder="Can hold a paragraph of text"></textarea>
 
   </section>
 
