@@ -67,8 +67,10 @@ if(selectedOption == "Athlete"){
     alert("Your Base Calories: " + valueCalories);
     }
     else{
+        console.log(valueCalories)
         alert("Please Input Values")
     }
+  
   }
   
 
@@ -123,6 +125,7 @@ function bmiCalc(){
     }
   
     document.getElementById("Results").value = message;
+    console.log(message + " "+ balance)
   }
   
   
