@@ -60,15 +60,10 @@ File: fitness.html
       </select>
       
       <label for="activityList">Activities:</label>
-      <select id="activityList" multiple>
-        <option value="200">Running</option>
-        <option value="Active" onmouseover="alert('Has a daily exercise routine, such as working out at a gym, going for a walk or jog, or doing some regular weightlifting')">Active</option>
-        <option value="200">Housework</option>
-        <option value="400">Biking</option>
-        <option value="200" onmouseover="alert('Engages in vigorous sporting activities or training 3 – 4 hours a day 6 days a week.')">Athlete</option>
-        <option value="Sedentary" onmouseover="alert('Little physical activity. Spends most of the day sitting, reading, socializing, watching television, playing video games, and using the computer.')">Sedentary</option>
-        <option value="600">Swimmming</option>
-        <option value="550">Hiking</option>
+      <select id="activityList" onchange="showMessage()">
+        <option value="Active" >Active</option>
+        <option value="Athlete" >Athlete</option>
+        <option value="Sedentary">Sedentary</option>
       </select>
       <button type = "button" onclick="bmiCalc()">Your BMI</button>
       <button type = "button" onclick="baseCalories()">Your Base Calories</button>

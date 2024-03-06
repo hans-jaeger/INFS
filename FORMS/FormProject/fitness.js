@@ -4,7 +4,7 @@ Date: March 5, 2024c
 */
 
 
-/*
+
 //Function Message
 
 
@@ -18,9 +18,12 @@ if (selectedOption == "Active"){
     alert(  "Has a daily exercise routine, such as working out at a gym, going for a walk or jog, or doing some regular weightlifting")
 
 }
+if(selectedOption == "Athlete"){
+    alert("Engages in vigorous sporting activities or training 3 – 4 hours a day 6 days a week.")
+}
   }
 
-  */
+
  
   function baseCalories() {
     // Get the birth date from the input
@@ -41,10 +44,12 @@ if (selectedOption == "Active"){
     var heightValue = parseInt(height);
     var weightValue = parseInt(weight);
   
-    var selectedOptions = document.getElementById("activityList").selectedOptions;
+    var selectedOption = document.getElementById("activityList").value;
   
     // Store the final value
     var valueCalories = 0;
+
+    /* FOR MULTIPLE TAG SELECT
 
     // Requires to store it into an array as we are accessing the multiple attribute tag
 
@@ -63,6 +68,14 @@ if (selectedOption == "Active"){
         valueCalories += 1.9 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
       }
     });
+    */
+    if (selectedOption == "Sedentary") {
+        valueCalories += 1.2 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      } else if (selectedOption == "Active") {
+        valueCalories += 1.55 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      } else if (selectedOption == "Athlete") {
+        valueCalories += 1.9 * (655 + (4.35 * weightValue) + (4.7 * heightValue) - (4.7 * age));
+      }
     if (valueCalories){
 
     
