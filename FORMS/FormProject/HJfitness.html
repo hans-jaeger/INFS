@@ -1,0 +1,97 @@
+<!--
+Author: Hans Jaeger
+Date: 2/26/2024
+File: fitness.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friendly Wellness Assistant</title>
+  <script src="HJfitness.js"></script>
+  <link rel="stylesheet" href="HJfitness.css">
+</head>
+<body>
+  <header>
+    <h1>Friendly Wellness Assistant</h1>
+  </header>
+  <!--User Information Section-->
+
+  <section id = "UserSection">
+    <h2>User Information</h2>
+    <form id="userForm">
+      <label for="userName">User Name:</label>
+      <!--Stating that the user must atleast input one letter in the form which is this code: [A-Za-z]. The [A-Za-z\s'-]+ states that any other types of lines may follow after the first letter. -->
+      <input type="text" id="userName" pattern="[A-Za-z][A-Za-z\s'-]+" required>
+      <!--Restrictions added-->
+
+      <label for="userHeight">Height (Inches):</label>
+      <input type="number" id="userHeight" min="100" max="250" required>
+      
+      <label for="userWeight">Weight (lbs):</label>
+      
+      <input type="number" id="userWeight" min="30" max="200" required>
+      
+      <label for="userBirthDate">Birth Date:</label>
+      <!--Restriction to not be able to select more thans the current day-->
+      <input type="date" id="userBirthDate" min="1924-02-26" max="2020-02-26"required>
+      <label for="activityList">    Lifestyle:</label>
+      <select id="activityList" onchange="showMessage()">
+        <option value="Active" >Active</option>
+        <option value="Athlete" >Athlete</option>
+        <option value="Sedentary">Sedentary</option>
+      </select>
+      <button type = "button" onclick="bmiCalc()">Your BMI</button>
+      <button type = "button" onclick="baseCalories()">Your Base Calories</button>
+    </form>
+  </section>
+  <!--Calorie Management Section -->
+  <section id ="CalorieSection">
+    <h2>Calorie Management</h2>
+    <p id ='informCals'>Note: Press CTRL or CMD to select multiple options</p>
+    <form id="calorieForm">
+      <label for="foodCategories">Food Categories:</label>
+      <select id="foodCategories" multiple>
+        <!--Values assigned for calorie loss after an hour -->
+        <option value="500">Meat</option>
+        <option value="400">Fish</option>
+        <option value="500">Pasta</option>
+        <option value="1000" ">Rice</option>
+        <option value="400">Ramen</option>
+        <option value="500">Alfredo Pasta</option>
+        <option value="400" ">Burrito</option>
+        <option value="900">Burgers</option>
+      </select>
+      <label for="activityCategories">Activies:</label>
+      <select id="activityCategories" multiple>
+        <!--Values assigned for calorie loss after an hour -->
+        <option value="500">Running</option>
+        <option value="600">Hiking</option>
+        <option value="400">Jogging</option>
+        <option value="500" ">Weights</option>
+        <option value="600">Swimming</option>
+        <option value="300">Housework</option>
+        <option value="100" ">Yoga</option>
+        <option value="600">Tennis</option>
+      </select>
+      <button type ="button" onclick = "calcUsage()">Calculate</button>
+    </form>
+  </section>
+  <!--Results Section-->
+  <section id = "ResultSection">
+    <h2>Results</h2>
+    <textarea id="Results" rows="6" cols="50" placeholder="Can hold a paragraph of text"></textarea>
+
+  </section>
+
+  <!--Links Section with the added new tab-->
+  <section id="LinksSection">
+    <h2>Links</h2>
+    <a href="https://www.andrews.edu/wellnesscenter" target="_blank">AU Wellness</a>
+    <a href="https://trainer.nasm.org/become-a-cpt-ps/?utm_campaign=nasm-bing-leadgeneration-branded&utm_medium=paidsearch&utm_source=bing&&utm_source=bing&utm_medium=ppc&utm_campaign=cpt-pros-webpurchases-search-branded-med&utm_content=text_br_elite&utm_term=nasm%20elite%20bundle&mskclid={mskclid}&msclkid=264eeb3f6f51185787778ee3b7ec3ef4" target="_blank">NASM</a>
+    <a href="https://www.nordictrack.com/treadmills?b_adgroup=Treadmills%20%7C%20General%20%7C%20Best&b_adgroupid=1185274473494364&b_adid=74079906673338&b_campaign=BNG%20%7C%20US%20%7C%20Text%20%7C%20NordicTrack%20%7C%20NonBrand%20%7C%20Treadmills&b_campaignid=361732749&b_isproduct=&b_productid=&b_term=best%20treadmill%20for%20walking&b_termid=kwd-74079820475216:loc-190&msclkid=05339ed9f3ae1e4c8b1efb052b7cbb49&utm_source=bing&utm_medium=cpc&utm_campaign=BNG%20%7C%20US%20%7C%20Text%20%7C%20NordicTrack%20%7C%20NonBrand%20%7C%20Treadmills&utm_term=best%20treadmill%20for%20walking&utm_content=Treadmills%20%7C%20General%20%7C%20Best" target="_blank">Nordic-Track</a>
+  </section>
+</body>
+</html>
