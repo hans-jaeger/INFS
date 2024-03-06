@@ -110,19 +110,19 @@ function bmiCalc(){
     });
   
     // Calculation
-    var baseCalories = 0; // Assuming baseCalories is defined elsewhere
+    var baseCalories = valueCalories; // Use the global variable valueCalories
     var balance = consumed - baseCalories - activities;
     var message;
   
     if (balance > 0) {
-      message = "You have consumed more calories! ";
+      message = "You have consumed more calories!";
     } else if (balance < 0) {
-      message = "You have burned more calories! ";
+      message = "You have burned more calories!";
     } else {
       message = "ERROR";
     }
   
     document.getElementById("Results").value = message;
-    
   }
+  
   
