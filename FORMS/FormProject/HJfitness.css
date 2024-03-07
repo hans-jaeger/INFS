@@ -6,35 +6,41 @@ File: fitness.css
 
 body {
   font-family: Arial,sans-serif;
-  padding: 20px;
+  padding: 10px;
+  background-color: rgb(243, 175, 26);
 
-    
 }
-
+/*
+Main Title Card 
+*/
 header {
   text-align: center;
   margin-bottom: 20px;
+  color: whitesmoke;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 /*
-Centering the sections 
+Centering the sections and defining their spacing 
 */
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50vh; 
+  height: 70vh; 
   
 }
 
-
+/*
+Text for the information section
+*/
 h2 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   margin-bottom: 10px;
   color: white;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 form {
@@ -45,6 +51,8 @@ form {
 
 label {
   font-weight: bold;
+  color: rgb(255, 255, 255);
+  filter: drop-shadow(.5px .5px 1px rgba(0, 0, 0, 0.5));
 }
 
 input, select, button {
@@ -68,7 +76,10 @@ a{
     color: gray;
     font-size: smaller;
   }
-  
+
+  /*
+  Background Image Sections
+  */
 #UserSection{
     background-image: url(./Media/YellowTopleft.jpg);
     background-size: 1942 2000px;
