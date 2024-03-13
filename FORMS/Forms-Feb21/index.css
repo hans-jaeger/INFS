@@ -3,3 +3,10 @@
 body{
     background-color: bisque;
 }
+
+input:invalid,
+ textarea:invalid{
+border: 2px solid red;
+border-radius: 2px;
+
+}
