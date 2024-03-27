@@ -10,8 +10,21 @@
 		<script src="/JQuery/jquery-3.7.1.js"></script>
 		<script>
 			//Function for changing the color of the light post 
+			$(document).ready(function(){
+				//Select all the buttons that have been clicked with the type button from input
+				$('input[type="button"]').click(function(){
+				//Set all of the divs with the class light as empty
+				$(".light").css("background-color", "");
+				//Set the color of the current selected div container as the current value
+				$('#' + $(this).val() + 'Light').css("background-color",$(this).val());
+				})
+				
+			})
+
+
+			/* JAVASCRIPT VERSION
 			
-			/*function d (color){
+			function d (color){
 				//If the post is equal to green or yellow or red, then change the selected color divs to the correct color and empty the rest of the divs 
 				if (color === "Red"){
 					document.getElementById("RedLight").style.background = "red";
@@ -29,21 +42,8 @@
 					document.getElementById("YellowLight").style.background = "";
 				}
 			}*/
-			//jQuery Version
-			function d(color) {
-  			if (color === "Red") {
-			//Create jQuery object and change the desired color based on the button id.
-			$("#RedLight").css("background-color", "red");
-			//Change the other divs to empty. 
-			$("#GreenLight, #YellowLight").css("background-color", "");
-		} 	else if (color === "Yellow") {
-			$("#RedLight, #GreenLight").css("background-color", "");
-			$("#YellowLight").css("background-color", "yellow");
-		} 	else if (color === "Green") {
-			$("#RedLight, #YellowLight").css("background-color", "");
-			$("#GreenLight").css("background-color", "green");
-		}
-			}
+	
+
 
 
 		</script>

@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Developer: (your name) 
-        	Start Date: (today's date) -->
+        <!-- Developer: Hans Jaeger 
+        	Start Date: March 27, 2024-->
         <title>An Adequate Calculator</title>
 		<link rel="stylesheet" type="text/css" href="calculator.css" media="screen" />
+		
+		<link src = "/JQuery/March27Calculator/">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src = "/JQuery/jquery-3.7.1.js"></script>
+		<script>
+	
+			$(document).ready(function(){
+				// Call all of the functions
+				$("#C").click(function(){
+					clear();
+				});
+				$('input[type="button"]').not('#percent ,#add ,#equals, #subtract, #multiply, #divide , #sign_switch').click(function(){
+					display($(this).val());
+				});
+				$('#percent').click(function(){
+					applyPercent();
+				});
+				$('#sign_switch').click(function(){
+					
+				})
+			});
+
+			// This function reloads and clears the memory
+			function clear(){
+				window.location.reload(true);
+			}
+			function grabCurrent(){
+				$(display).val();
+			}
+			function display(value){
+				$('#display').val(value);
+			}
+
+			function applyPercent(){
+				let currentValue = parseFloat($('#display').val());
+				let percentValue = currentValue / 100;
+				display(percentValue);
+			}
+			function sign_switch(){
+				let currentVal = grabCurrent() ;
+				display(-1*currentVal);
+
+			}
+			
+		</script>
     </head>
     <body>
 		<header>
 			<h1>
-    			A Calculator
+				Calculator 
     		</h1>
 		</header>
 		<section>
@@ -20,7 +64,7 @@
 					<input type="hidden" id="memory" name="memory">
 				</div>
 				<div id="inputs" class="keypad">
-					<input type="button" id="C" name="C" value="C">
+					<input type="button" id="C" name="C" value="C" >
 					<input type="button" id="sign_switch" name="sign_switch" value="+/-">
 					<input type="button" id="percent" name="percent" value="%">
 					<input type="button" id="divide" name="divide" value="/">
@@ -45,7 +89,7 @@
 		</section>
 
 		<footer>
-			Copyright &copy; 2023 
+			Copyright &copy; 2024
 		</footer>
     </body>
 </html>
