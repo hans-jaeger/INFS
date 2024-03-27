@@ -3,3 +3,16 @@
 body{
     background-color: bisque;
 }
+
+/*
+Invalid Section:
+*/
+
+input:invalid, textarea:invalid{
+   border: 10px solid red;
+   border-radius: 1px;
+}
+
+input:focus:invalid, textarea:focus:invalid{
+    border: none;
+}
