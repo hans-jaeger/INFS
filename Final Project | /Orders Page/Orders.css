@@ -1,0 +1,13 @@
+
+/* Custom CSS for centering the table */
+.center-table{
+  margin: 0 auto; 
+  margin-top: 150px;
+}
+#calcTotal{
+  margin-left: 125px;
+}
+/*Input style for required fields*/
+input[required] {
+  border: 2px solid rgb(252, 198, 48);
+}

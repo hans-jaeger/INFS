@@ -1,0 +1,90 @@
+<!-- 
+    Author: Hans Jaeger
+    Date: Abril 8, 2024
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Example</title>
+    <script src="/INFS-GIt/JQuery/jquery-3.7.1.js"></script>
+    <!--Table data set plug in-->
+    <link href="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.js"></script>
+    <script>
+       $(document).ready(function(){
+        $('#courseList').DataTable();
+       });
+
+
+    </script>
+  
+    
+</head>
+<body>
+    <!-- HTML code -->
+    
+    <table id ='courseList'>
+        <thead> <!--Making a dynamic table-->
+        <tr>
+            <th>Category</th>
+            <th>Location</th>
+            <th>Subject</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Stem</td>
+            <td>Remote</td>
+            <td>Computer Science 1</td>
+            
+        </tr>
+        <tr>
+            <td>Stem</td>
+            <td>On Campus</td>
+            <td>Foundations of Biology</td>
+            
+        </tr>
+        <tr>
+            <td>Stem</td>
+            <td>On Campus</td>
+            <td>Intro to web development</td>
+
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Remote</td>
+            <td>History Of Music</td>
+            
+        </tr>
+        <tr>
+            <td>Health</td>
+            <td>On Campus</td>
+            <td>Well Being 360</td>
+
+        </tr>
+        <tr>
+            <td>Communications</td>
+            <td>On Campus</td>
+            <td>Communications: Explore Cultures</td>
+
+        </tr>
+        <tr>
+            <td>Row 2, Column 1</td>
+            <td>Row 2, Column 2</td>
+            <td>Row 2, Column 3</td>
+
+        </tr>
+        <!-- Add more rows here -->
+        <tr>
+            <td>Row 9, Column 1</td>
+            <td>Row 9, Column 2</td>
+            <td>Row 9, Column 3</td>
+        
+        </tr>
+    </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Orders.css">
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Centered Bootstrap Table</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div> 
+      <div class="col-12 col-lg-8 center-table">
+        <table class="table table-bordered">
+          <thead>
+        <tr>
+          <th>Item</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+          </thead>
+          <tbody>
+        <!-- Rows -->
+        <tr>
+          <td>Digestive Enzymes</td>
+            <td>$42.95</td>
+            <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 42.95,'total_1' )"></td>
+            <td id= "total_1"></td>
+        </tr>
+        <tr>
+          <td>Vegan Multivitamin Gelcaps</td>
+          <td>$25.99</td>
+          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 25.99,'total_2' )"></td>
+          <td id= "total_2"></td>
+        </tr>
+     
+        <tr>
+          <td>Protein Powder</td>
+          <td>$40.60</td>
+          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 40.60,'total_3' )"></td>
+          <td id= "total_3"></td>
+        </tr>
+        <tr>
+          <td>Alfalfa Tablets</td>
+          <td>$15.00</td>
+          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 15.00,'total_4' )"></td>
+          <td id= "total_4"></td>
+        </tr>
+        <tr>
+          <td colspan="3">Total</td>
+          <td id = "Total_Sum"></td>
+        </tr>
+        <tr>
+          <td colspan="3">Shipping Method</td>
+          <td>
+            <!-- The style is from boostrap-->
+            <select class="form-control" name="shipping"  onchange="displayShippingCost(this.value)">
+              <option value = "">Select Shipping Method</option>
+              <option value="$15.95">Express (next day morning)</option>
+              <option value="$10.95">1 day (next day by end of day)</option>
+              <option value="$7.95">Priority (2 – 5 days)</option>
+              <option value="$3.95">Economy (7 – 9 days)</option>
+            </select>
+            </select>
+          </td>
+          </td>
+        </tr>
+        </tr>
+        <tr>
+          <td colspan="3">Shipping</td>
+          <td id = "shipping_cost"></td>
+        </tr>
+        <tr>
+          <td colspan="3">Calculate <button class="btn btn-primary" id= "calcTotal"onclick="calcTotal()">Calculate Order Total</button></td>
+          <td id = "final_Cost"></td>
+        </tr>
+        </tr>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col"></div>
+    </div>
+    <!--Form Section-->
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input required type="text" class="form-control" id="name" placeholder="Enter your name">
+      </div><!--Ending of form group-->
+      <div class="form-group">
+        <label for="address">Shipping Address</label>
+        <div class="row">
+          <div class="col">
+        <input required type="address" class="form-control" id="address_1" placeholder="Enter your shipping address">
+          </div>
+          <div class="col">
+        <input type="address" class="form-control" id="address_2" placeholder=" *OPTIONAL* Second shipping address">
+          </div>
+          
+        </div>
+        
+      </div> <!--Ending of form group-->
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input required type="text" class="form-control" id="city" placeholder="Enter your city">
+          </div>
+        </div>
+        <div class="col">
+          <label for="state">State</label>
+          <input required type="text" class="form-control" id="state" placeholder="Enter your state">
+        </div>
+        <div class="col">
+          <label for="zip">Zip</label>
+          <input required type="text" class="form-control" id="zip" placeholder="Enter your ZIP">
+        </div>
+      </div><!--End of Form Group Div-->
+      <div class="form-group">
+        <label>Same Billing Address?</label>
+        <input type="radio" name="copyinformation" id ="sameCopy" value="yes" onchange="copyBillingAddress()">
+        <label for="option">Yes</label>
+        <input type="radio" name="copyinformation" value="no">
+        <label for="option">No</label>
+
+      </div><!--End of Form Group Div-->
+
+
+ <!--The Bill Section-->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="bill_name" placeholder="Enter your name">
+      </div><!--Ending of form group-->
+      <div class="form-group">
+        <label for="address">Shipping Address</label>
+        <div class="row">
+          <div class="col">
+        <input  type="address" class="form-control" id="bill_address_1" placeholder="Enter your shipping address">
+          </div>
+          <div class="col">
+        <input type="address" class="form-control" id="bill_address_2" placeholder=" *OPTIONAL* Second shipping address">
+          </div>
+          
+        </div>
+        
+      </div> <!--Ending of form group-->
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="bill_city" placeholder="Enter your city">
+          </div>
+        </div>
+        <div class="col">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="bill_state" placeholder="Enter your state">
+        </div>
+        <div class="col">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP">
+        </div>
+      </div><!--End of Form Group Div-->
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-primary" onclick="reset()">Reset</button>
+      <button onclick="dateRange()" class="btn btn-secondary">Show Dates</button>
+      </div>
+
+      <!--Range Time-->
+      <!--
+        o Express (next day morning) – 15.95
+        o 1 day (next day by end of day) – 10.95
+        o Priority (2 – 5 days) – 7.95
+        o Economy (7 – 9 days)– 3.95
+        -->
+       <div class = "form-group">
+      <p id = "arrivialDate">
+       
+      </p>
+    </div> 
+    </form>
+  </div>
+ 
+  <script src="/Orders Page/Orders.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

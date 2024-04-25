@@ -1,0 +1,200 @@
+<!--
+
+Author: Hans Jaeger
+Date: Apr 2, 2024
+Assignment: Creation of form with validation through using jQuery
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abril First</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#myForm').submit(function(event) {
+      event.preventDefault(); // Prevent form submission so it does not send data to an actual server
+      
+      // Validate First Name field
+      var firstName = $('#first-name').val();
+      if (firstName === '') {
+        alert('First Name is required');
+        return;
+      }
+      
+      // Validate Last Name field
+      var lastName = $('#last-name').val();
+      if (lastName === '') {
+        alert('Last Name is required');
+        return;
+      }
+      
+      // Validate Email field
+      var email = $('#email').val();
+      if (email === '') {
+        alert('Email is required');
+        return;
+      }
+      
+      // Validate Date of Birth field
+      var dob = $('#dob').val();
+      if (dob === '') {
+        alert('Date of Birth is required');
+        return;
+      }
+      
+      // Validate Employer field if employed option is selected
+      var employed = $('#employed').is(':checked');
+      if (employed) {
+        var employer = $('#employer').val();
+        if (employer === '') {
+          alert('Employer is required');
+          return;
+        }
+      }
+      
+      // Submit the form if it passes all of the validations 
+      this.submit();
+    });
+  });
+  
+  // The function allows or disables the employer field based on the checkbox of employed. 
+  function toggleEmployerField() {
+    var employed = $('#employed').is(':checked');
+    $('#employer').prop('disabled', !employed);
+  }
+  
+  // This function informs the user how many words are left when they click on the textarea.
+  function wordsLeft() {     
+    var comment = $('#comment').val();
+    var maxLength = 100;
+    var charactersLeft = maxLength - comment.length;
+    alert('Characters left: ' + charactersLeft);
+  }
+</script>
+<style>
+
+#Text{
+  border: 1.5px solid red ;
+  border-width: .5px;
+
+}
+  /* Center the select element */
+select {
+  margin: 0 auto; 
+  display: block;
+
+}
+
+/* Centering the form*/
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  background-color: #f5efef;
+}
+
+/* Style the form elements */
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Highlight required fields */
+input:required,
+textarea:required {
+  border: 1.5px solid rgb(255, 4, 4);
+}
+
+/* Enable employer field when employed option is checked */
+input[type="checkbox"]:checked ~ #employer {
+  background-color: white;
+  cursor: text;
+}
+
+/* Inform the user how many words are left */
+#comment {
+  resize: vertical;
+}
+
+#comment:invalid {
+  border: 1.5px solid red;
+}
+
+#comment:valid {
+  border: 1.5px solid green;
+}
+</style>
+</head>
+<body>
+  
+    <form id="myForm">
+        <div style="text-align: center;">
+          <h1>My Form</h1>
+          <p id = "Text">The Highlight Red is Required</p>
+          <label for="first-name">First Name</label>
+          <!-- Auto focus so the user begins at the first input field when first loading the window -->
+          <input type="text" id="first-name" name="first-name" required autofocus>
+          
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" required><br><br>
+          
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required><br><br>
+          
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required><br><br>
+          
+          <label for="employed">Employed</label>
+          <!-- Check whether the user has checked the checkbox -->
+          <input type="checkbox" id="employed" name="employed" onchange="toggleEmployerField()"><br><br>
+          
+
+          <label for="employer">Employer</label>
+          <input type="text" id="employer" name="employer" disabled><br><br>
+          
+          <label for="days-of-week">Days of the Week</label>
+          <select name="days" id="days" size="7" multiple>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+<br>
+          <label for="comment">Comment</label>
+          <!-- Every time the user clicks on the textarea, alert() the amount of words left -->
+          <textarea id="comment" name="comment" maxlength="100" onclick="wordsLeft()"></textarea><br><br>
+          
+          <input type="submit" value="Submit">
+        </div>
+        
+
+      </form>
+      
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.activity-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-left: 5px;
+    justify-content: center;
+}
+
+.graphics-section {
+    display: flex;
+    justify-content: center;
+}
+
+#activity {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#completed-activities {
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
