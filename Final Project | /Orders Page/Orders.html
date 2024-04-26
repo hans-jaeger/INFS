@@ -1,3 +1,8 @@
+<!--
+Author: Hans Jaeger
+Date: Apr 25, 2024
+Description: This is the Orders Page for the Health and Wellness Website. This page will allow the user to select the items they want to purchase and enter their shipping information. The user will be able to see the total cost of their order and the estimated arrival date of their order.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +92,8 @@
     <!--Form Section-->
     <form>
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Ship Information
+          : Name</label>
         <input required type="text" class="form-control" id="name" placeholder="Enter your name">
       </div><!--Ending of form group-->
       <div class="form-group">
@@ -132,7 +138,7 @@
 
  <!--The Bill Section-->
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Billing Information: Name</label>
         <input type="text" class="form-control" id="bill_name" placeholder="Enter your name">
       </div><!--Ending of form group-->
       <div class="form-group">
@@ -165,23 +171,22 @@
           <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP">
         </div>
       </div><!--End of Form Group Div-->
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-primary" onclick="reset()">Reset</button>
-      <button onclick="dateRange()" class="btn btn-secondary">Show Dates</button>
+      <button type="submit" class="btn btn-primary" onclick="return false">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      
+      <button id="showDatesBtn" class="btn btn-secondary">Show Dates</button>
+
+      
+      <div class="form-group">
+
+        <p id="arrivalDate" class="lead">
+         
+        </p>
+      </div>
+      </div> 
       </div>
 
-      <!--Range Time-->
-      <!--
-        o Express (next day morning) – 15.95
-        o 1 day (next day by end of day) – 10.95
-        o Priority (2 – 5 days) – 7.95
-        o Economy (7 – 9 days)– 3.95
-        -->
-       <div class = "form-group">
-      <p id = "arrivialDate">
-       
-      </p>
-    </div> 
+
     </form>
   </div>
  
