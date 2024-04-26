@@ -1,4 +1,8 @@
-
+/*
+Author: Hans Jaeger
+Date: April 25, 2024
+Description: This file contains the JavaScript code for the workout page.
+*/
 // Get the current date
 var currentDate = new Date();
 

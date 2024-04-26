@@ -2,7 +2,6 @@
 Author: Hans Jaeger
 Date: Abril 22, 2024
 Description: This is the Workout Page for the Friendly Wellness Assistant. This page will display a list of activities for the user to select from. The user can select an activity and add it to their checklist. Once the user completes the activity, they can check it off and it will be added to the completed activities list. The user can also view fitness-related graphics to help motivate them to complete their workout. The user can navigate to the Orders Page by clicking on the link at the bottom of the page.
-
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,61 +9,59 @@ Description: This is the Workout Page for the Friendly Wellness Assistant. This 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="Workout.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  
 </head>
 <body>
 
-    <h1>Friendly Wellness Assistant</h1>
-    <br>
-    <div class="workout-schedule">
-           <h4> Workout Schedule For: <span id="current-date"></span></h4>
-     
+    <div class="container">
+        <h1 class="mt-4">Friendly Wellness Assistant</h1>
+        <br>
+        <div class="workout-schedule">
+            <h4 style="text-align: center;">Workout Schedule For: <span id="current-date" style="display: inline-block;"></span></h4>
+        </div>
+        </div>
+
+        <div id="activity-checkboxes">
+            
+        </div>
+
+        <div class="graphics-section">
+            <!-- Add fitness-related graphics here -->
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="activity">Select an activity:</label>
+            <select class="form-control" id="activity-select">
+                <option value="Bench Press - 6 reps">Bench Press - 6 reps</option>
+                <option value="Inclinded Dumbell Press - 8 reps">Inclinded Dumbell Press - 8 reps</option>
+                <option value="Arm Laterals - 8 reps">Arm Laterals - 8 reps</option>
+                <option value="Squats - 10 reps">Squats - 10 reps</option>
+                <option value="Deadlifts - 5 reps">Deadlifts - 5 reps</option>
+                <option value="Push-ups - 15 reps">Push-ups - 15 reps</option>
+                <option value="Plank - 1 minute">Plank - 1 minute</option>
+                <option value="Jumping Jacks - 30 reps">Jumping Jacks - 30 reps</option>
+                <option value="Mountain Climbers - 20 reps">Mountain Climbers - 20 reps</option>
+                <option value="Burpees - 10 reps">Burpees - 10 reps</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" onclick="addActivity()">Add Activity</button>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Completed Activities</h2>
+        <ul id="completed-activities">
+            <!-- Add completed activities here -->
+        </ul>
+
+        <button class="btn btn-secondary" onclick="window.location.href='../Orders Page/Orders.html'">Go to Orders Page</button>
     </div>
-
-    <div id="activity-checkboxes">
-     
-    </div>
-    <div class="graphics-section">
-        <!-- Add fitness-related graphics here -->
-    </div>
-
-    
-    <br>
-    <label for="activity">Select an activity:</label>
-    <div id="activity">
-        <select id="activity-select">
-        <option value="Bench Press - 6 reps">Bench Press - 6 reps</option>
-        <option value="Inclinded Dumbell Press - 8 reps">Inclinded Dumbell Press - 8 reps</option>
-        <option value="Arm Laterals - 8 reps">Arm Laterals - 8 reps</option>
-        <option value="Squats - 10 reps">Squats - 10 reps</option>
-        <option value="Deadlifts - 5 reps">Deadlifts - 5 reps</option>
-        <option value="Push-ups - 15 reps">Push-ups - 15 reps</option>
-        <option value="Plank - 1 minute">Plank - 1 minute</option>
-        <option value="Jumping Jacks - 30 reps">Jumping Jacks - 30 reps</option>
-        <option value="Mountain Climbers - 20 reps">Mountain Climbers - 20 reps</option>
-        <option value="Burpees - 10 reps">Burpees - 10 reps</option>
-        </select>
-    </div>
-
-    <button onclick="addActivity()">Add Activity</button>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2>Completed Activities</h2>
-    <ul id="completed-activities">
-        
-    </ul>
-
-
-    <button onclick="window.location.href='Orders.html'">Go to Orders Page</button>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="Workout.js"></script>
-</body>
 </body>
 </html>

@@ -119,11 +119,11 @@ Description: This is the Orders Page for the Health and Wellness Website. This p
         </div>
         <div class="col">
           <label for="state">State</label>
-          <input required type="text" class="form-control" id="state" placeholder="Enter your state">
+          <input required type="text" class="form-control" id="state" pattern="[A-Za-z]{2}"  maxlength="2" placeholder="Enter your state">
         </div>
         <div class="col">
           <label for="zip">Zip</label>
-          <input required type="text" class="form-control" id="zip" placeholder="Enter your ZIP">
+          <input required type="text" class="form-control" id="zip" placeholder="Enter your ZIP" pattern="\d{5}" maxlength="5">
         </div>
       </div><!--End of Form Group Div-->
       <div class="form-group">
@@ -164,17 +164,18 @@ Description: This is the Orders Page for the Health and Wellness Website. This p
         </div>
         <div class="col">
           <label for="state">State</label>
-          <input type="text" class="form-control" id="bill_state" placeholder="Enter your state">
+          <input type="text" class="form-control" id="bill_state" placeholder="Enter your state" pattern="[A-Za-z]{2}"  maxlength="2" >
         </div>
         <div class="col">
           <label for="zip">Zip</label>
-          <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP">
+            <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP"  pattern="\d{5}" maxlength="5">
         </div>
       </div><!--End of Form Group Div-->
-      <button type="submit" class="btn btn-primary" onclick="return false">Submit</button>
+      <button type="submit" class="btn btn-primary" onclick="">Submit</button>
       <button type="reset" class="btn btn-primary">Reset</button>
       
       <button id="showDatesBtn" class="btn btn-secondary">Show Dates</button>
+      <button id = "pageButton" class="btn btn-primary" onclick="window.location.href='../Workout Page/Workout.html'">Go to Workout Page</button>
 
       
       <div class="form-group">

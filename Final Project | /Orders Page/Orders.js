@@ -2,7 +2,8 @@
 /*
 Author: Hans Jaeger
 Date: April 25, 2024
-Description: This file contains the JavaScript code for the Orders page
+Description: This file contains the JavaScript code for the Orders page. This file contains functions that calculate the total price of a product based on the quantity and price of the product. It also contains functions that calculate the total cost of the order and display the shipping cost.
+The file also contains a function that copies the shipping address to the billing address. The file also contains a function that displays the arrival dates based on the shipping cost.
 */
 
 /*
@@ -10,9 +11,11 @@ Description: This file contains the JavaScript code for the Orders page
  */
 function calculateTotalLocal(quantity, price, tdId) {
     var total = quantity * price;
-    var truncatedTotal = total.toFixed(2); // Round the total to 2 decimal places
+     // Round the total to 2 decimal places
+    var truncatedTotal = total.toFixed(2);
     var tdElement = document.getElementById(tdId);
-    tdElement.textContent = "$" + truncatedTotal.replace(/\.00$/, ''); // Add the dollar sign and remove the dot if the decimal is 0
+     // Add the dollar sign and remove the dot if the decimal is 0
+    tdElement.textContent = "$" + truncatedTotal.replace(/\.00$/, '');
 
 
     calculateIdValue(); 
@@ -36,10 +39,14 @@ function displayShippingCost(shipValue) {
 }
 
 // Description: This function calculates the total cost of the order
+
 function calcTotal() {
+    //Grabbing the total product costs and shipping costs
     var total_product_costs = parseFloat($("#Total_Sum").text().replace('$', '')) || 0;
     var shipping_Cost = parseFloat($("#shipping_cost").text().replace('$', '')) || 0;
+    //Calculating the total cost
     var totalCost = total_product_costs + shipping_Cost;
+    //Updating the total cost
     $("#final_Cost").text("$" + totalCost.toFixed(2));
 }
 
@@ -69,7 +76,9 @@ function dateRange() {
 
     var shippingCost = $("#shipping_cost").text();
 
-    if (shippingCost === '$15.95') { // Check shipping cost value
+    if (shippingCost === '$15.95') { 
+
+        //Grab the current date and increment it based on the shipping method
         var incrementedDay_1 = new Date(today);
         incrementedDay_1.setDate(today.getDate());
 
@@ -110,6 +119,7 @@ function dateRange() {
     else {
         arrivalDate.text('');
     }
+    //Debugging
     return arrivalDate;
 }
 // Add an event listener to the "Show Dates" button
