@@ -1,3 +1,9 @@
+/*
+Author: Hans Jaeger
+Date: Apr 26, 2024
+Description: This is the CSS file for the workout page. 
+
+*/
 body {
     display: flex;
     flex-direction: column;
@@ -45,4 +51,11 @@ a {
     text-align: center;
     margin-top: 20px;
 }
-
+/*Making it responsive so that 
+the image doesn't take the entire page when resizing*/
+.carousel-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    height: 400px; 
+}

@@ -1,37 +1,30 @@
 /*
 Author: Hans Jaeger
 Date: April 25, 2024
-Description: This file contains the JavaScript code for the workout page.
+Description: This file contains the addActivity, createcheckbox, createLabel, createDiv, moveCompletedActivity functions. 
 */
 // Get the current date
 var currentDate = new Date();
 
 // Format the date as desired
 var formattedDate = currentDate.toDateString();
-
-// Set the formatted date as the content of the span element
 $("#current-date").text(formattedDate);
 
-// This section of code is for the activity select dropdown
+// This function is called when the user clicks the "Add Activity" button
 function addActivity() {
     // Get the selected activity from the dropdown
     const selectedValue = $("#activity-select").val();
-
-    // Create a checkbox element
+    // Creation section for the labels and checkboxes which will be appended to the activity checkboxes container
     const checkbox = createCheckbox(selectedValue);
-
-    // Create a label element for the checkbox
     const label = createLabel(selectedValue);
-
-    // Create a div element to contain the checkbox and label
     const div = createDiv(checkbox, label);
-
-    // Append the div to the activity checkboxes container
+  // Append the div to the activity checkboxes container
     $("#activity-checkboxes").append(div);
 
     // Add event listener to the checkbox
     checkbox.on("click", function() {
         moveCompletedActivity(checkbox, selectedValue);
+        // Removes the checkbox from the activity checkboxes container
         checkbox.parent().remove();
     });
 }
@@ -52,11 +45,14 @@ function createLabel(value) {
     return label;
 }
 
-// Function to create a div element
+// Function to create a div element with spacing between checkbox and label
 function createDiv(checkbox, label) {
     const div = $("<div>").append(checkbox, label);
+    // Added some margin since the checkboxes were too close to the labels
+    checkbox.css("margin-right", "5px");
     return div;
 }
+
 
 // Function to move completed activity
 function moveCompletedActivity(checkbox, selectedValue) {

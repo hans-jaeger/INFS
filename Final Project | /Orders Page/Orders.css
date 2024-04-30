@@ -1,5 +1,9 @@
-
-/* Custom CSS for centering the table */
+/*
+Author: Hans Jaeger
+Date: April 25, 2024
+Description: CSS for the Orders page
+*/
+/*Table style*/
 .center-table{
   margin: 0 auto; 
   margin-top: 20px;
@@ -13,5 +17,9 @@ input[required] {
 }
 
 #arrivalDate{
+  margin-top: 10px;
+}
+
+#hiddenAlert{
   margin-top: 10px;
 }

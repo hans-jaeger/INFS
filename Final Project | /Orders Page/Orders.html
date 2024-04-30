@@ -1,7 +1,8 @@
 <!--
 Author: Hans Jaeger
 Date: Apr 25, 2024
-Description: This is the Orders Page for the Health and Wellness Website. This page will allow the user to select the items they want to purchase and enter their shipping information. The user will be able to see the total cost of their order and the estimated arrival date of their order.
+Description: This is the Orders Page for the Friendly Wellness Assistant. This page will display a list of items for the user to select from. The user can select an item and add it to their order. Once the user completes the order, they can submit it and the order will be processed. 
+The user can navigate to the Workout Page by clicking on the link at the bottom of the page.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -9,106 +10,102 @@ Description: This is the Orders Page for the Health and Wellness Website. This p
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Orders.css">
-  
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <title>Centered Bootstrap Table</title>
+  <title>Order's Page</title>
 </head>
 <body>
   <div class="container">
+    <div id="hiddenAlert" role="alert" style="display: none;"></div>
     <div class="row">
-      <div class="col"></div> 
+      <div class="col">
       <div class="col-12 col-lg-8 center-table">
         <table class="table table-bordered">
           <thead>
-        <tr>
-          <th>Item</th>
-          <th>Unit Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
+            <!-- Table header -->
+            <tr>
+              <th>Item</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
           </thead>
           <tbody>
-        <!-- Rows -->
-        <tr>
-          <td>Digestive Enzymes</td>
-            <td>$42.95</td>
-            <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 42.95,'total_1' )"></td>
-            <td id= "total_1"></td>
-        </tr>
-        <tr>
-          <td>Vegan Multivitamin Gelcaps</td>
-          <td>$25.99</td>
-          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 25.99,'total_2' )"></td>
-          <td id= "total_2"></td>
-        </tr>
-     
-        <tr>
-          <td>Protein Powder</td>
-          <td>$40.60</td>
-          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 40.60,'total_3' )"></td>
-          <td id= "total_3"></td>
-        </tr>
-        <tr>
-          <td>Alfalfa Tablets</td>
-          <td>$15.00</td>
-          <td><input type="number"  name="amount" max="999" onchange="calculateTotalLocal(this.value, 15.00,'total_4' )"></td>
-          <td id= "total_4"></td>
-        </tr>
-        <tr>
-          <td colspan="3">Total</td>
-          <td id = "Total_Sum"></td>
-        </tr>
-        <tr>
-          <td colspan="3">Shipping Method</td>
-          <td>
-            <!-- The style is from boostrap-->
-            <select class="form-control" name="shipping"  onchange="displayShippingCost(this.value)">
-              <option value = "">Select Shipping Method</option>
-              <option value="$15.95">Express (next day morning)</option>
-              <option value="$10.95">1 day (next day by end of day)</option>
-              <option value="$7.95">Priority (2 – 5 days)</option>
-              <option value="$3.95">Economy (7 – 9 days)</option>
-            </select>
-            </select>
-          </td>
-          </td>
-        </tr>
-        </tr>
-        <tr>
-          <td colspan="3">Shipping</td>
-          <td id = "shipping_cost"></td>
-        </tr>
-        <tr>
-          <td colspan="3">Calculate <button class="btn btn-primary" id= "calcTotal"onclick="calcTotal()">Calculate Order Total</button></td>
-          <td id = "final_Cost"></td>
-        </tr>
-        </tr>
-        </tr>
+            <!-- Table rows -->
+            <tr>
+              <td>Digestive Enzymes</td>
+              <td>$42.95</td>
+              <td><input type="number"  name="amount"  min = "0"  max="999" onchange="calculateTotalLocal(this.value, 42.95,'total_1' )"></td>
+              <td id= "total_1"></td>
+            </tr>
+            <tr>
+              <td>Vegan Multivitamin Gelcaps</td>
+              <td>$25.99</td>
+              <td><input type="number"  name="amount"  min = "0" max="999" onchange="calculateTotalLocal(this.value, 25.99,'total_2' )"></td>
+              <td id= "total_2"></td>
+            </tr>
+            <tr>
+              <td>Protein Powder</td>
+              <td>$40.60</td>
+              <td><input type="number"  name="amount" min = "0" max="999" onchange="calculateTotalLocal(this.value, 40.60,'total_3' )"></td>
+              <td id= "total_3"></td>
+            </tr>
+            <tr>
+              <td>Alfalfa Tablets</td>
+              <td>$15.00</td>
+              <td><input type="number"  name="amount" min = "0" max="999" onchange="calculateTotalLocal(this.value, 15.00,'total_4')"></td>
+              <td id= "total_4"></td>
+            </tr>
+            <tr>
+              <td colspan="3">Total</td>
+              <td id="Total_Sum"></td>
+            </tr>
+            <tr>
+              <td colspan="3">Shipping Method</td>
+              <td>
+                <select class="form-control" name="shipping" onchange="displayShippingCost(this.value)">
+                  <option value="">Select Shipping Method</option>
+                  <option value="$15.95">Express (next day morning)</option>
+                  <option value="$10.95">1 day (next day by end of day)</option>
+                  <option value="$7.95">Priority (2 - 5 days)</option>
+                  <option value="$3.95">Economy (7 - 9 days)</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">Shipping</td>
+              <td id="shipping_cost"></td>
+            </tr>
+            <tr>
+              <td colspan="3">Calculate <button class="btn btn-primary" id="calcTotal" onclick="calcTotal()">Calculate Order Total</button></td>
+              <td id="final_Cost"></td>
+            </tr>
           </tbody>
-        </table>
+        </table> <!--Table Content Ends -->
       </div>
+      <!--Suppose to provide some space-->
+      
       <div class="col"></div>
+     
     </div>
-    <!--Form Section-->
+    </div>
+    
+    <!-- Form Section -->
     <form>
       <div class="form-group">
-        <label for="name">Ship Information
-          : Name</label>
+        <label for="name">Ship Information: Name</label>
         <input required type="text" class="form-control" id="name" placeholder="Enter your name">
-      </div><!--Ending of form group-->
+      </div><!-- Ending of form group -->
       <div class="form-group">
         <label for="address">Shipping Address</label>
         <div class="row">
           <div class="col">
-        <input required type="address" class="form-control" id="address_1" placeholder="Enter your shipping address">
+            <input required type="address" class="form-control" id="address_1" placeholder="Enter your shipping address">
           </div>
           <div class="col">
-        <input type="address" class="form-control" id="address_2" placeholder=" *OPTIONAL* Second shipping address">
+            <input type="address" class="form-control" id="address_2" placeholder=" *OPTIONAL* Second shipping address">
           </div>
-          
         </div>
-        
-      </div> <!--Ending of form group-->
+      </div> <!-- Ending of form group -->
 
       <div class="row">
         <div class="col">
@@ -125,35 +122,31 @@ Description: This is the Orders Page for the Health and Wellness Website. This p
           <label for="zip">Zip</label>
           <input required type="text" class="form-control" id="zip" placeholder="Enter your ZIP" pattern="\d{5}" maxlength="5">
         </div>
-      </div><!--End of Form Group Div-->
+      </div><!-- End of Form Group Div -->
       <div class="form-group">
-        <label>Same Billing Address?</label>
-        <input type="radio" name="copyinformation" id ="sameCopy" value="yes" onchange="copyBillingAddress()">
+        <label for ="sameCopy">Same Billing Address?</label>
+        <input type="radio" name="copyinformation" id="sameCopy" value="yes" onchange="copyBillingAddress()">
         <label for="option">Yes</label>
         <input type="radio" name="copyinformation" value="no">
         <label for="option">No</label>
+      </div><!-- End of Form Group Div -->
 
-      </div><!--End of Form Group Div-->
-
-
- <!--The Bill Section-->
+      <!-- The Bill Section -->
       <div class="form-group">
         <label for="name">Billing Information: Name</label>
-        <input type="text" class="form-control" id="bill_name" placeholder="Enter your name">
-      </div><!--Ending of form group-->
+        <input type="text" class="form-control" id="bill_name" placeholder="Enter your name" autocomplete="name">
+      </div><!-- Ending of form group -->
       <div class="form-group">
         <label for="address">Shipping Address</label>
         <div class="row">
           <div class="col">
-        <input  type="address" class="form-control" id="bill_address_1" placeholder="Enter your shipping address">
+            <input type="address" class="form-control" id="bill_address_1" placeholder="Enter your shipping address">
           </div>
           <div class="col">
-        <input type="address" class="form-control" id="bill_address_2" placeholder=" *OPTIONAL* Second shipping address">
+            <input type="address" class="form-control" id="bill_address_2" placeholder=" *OPTIONAL* Second shipping address">
           </div>
-          
         </div>
-        
-      </div> <!--Ending of form group-->
+      </div> <!-- Ending of form group -->
 
       <div class="row">
         <div class="col">
@@ -168,30 +161,26 @@ Description: This is the Orders Page for the Health and Wellness Website. This p
         </div>
         <div class="col">
           <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP"  pattern="\d{5}" maxlength="5">
+          <input type="text" class="form-control" id="bill_zip" placeholder="Enter your ZIP"  pattern="\d{5}" maxlength="5">
         </div>
-      </div><!--End of Form Group Div-->
-      <button type="submit" class="btn btn-primary" onclick="">Submit</button>
+      </div><!-- End of Form Group Div -->
+
+      <!-- Button Section -->
+      <button type="submit" id="submit" class="btn btn-primary" >Submit</button>
       <button type="reset" class="btn btn-primary">Reset</button>
-      
-      <button id="showDatesBtn" class="btn btn-secondary">Show Dates</button>
-      <button id = "pageButton" class="btn btn-primary" onclick="window.location.href='../Workout Page/Workout.html'">Go to Workout Page</button>
+      <!--For some reason, sometimes you have to double click this button which may a problem from my end-->
+      <button id="showDatesBtn"class="btn btn-secondary">Show Dates</button>
+      <button id="pageButton" class="btn btn-primary" onclick="window.location.href='../Workout Page/Workout.html'">Go to Workout Page</button>
 
-      
       <div class="form-group">
-
-        <p id="arrivalDate" class="lead">
-         
-        </p>
+        <p id="arrivalDate" class="lead"></p>
       </div>
-      </div> 
-      </div>
-
-
     </form>
   </div>
- 
-  <script src="/Orders Page/Orders.js"></script>
+</div>
+  <!--Links-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../Orders Page/Orders.js"></script>
+ 
 </body>
 </html>
